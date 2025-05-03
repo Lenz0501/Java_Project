@@ -4,8 +4,8 @@
 <pre>
 Swing_Test/
 └── src/
-    ├── myapp/       ← (功能之後放這)
-    │   ├── atm/
+    ├── myapp/
+    │   ├── atm/       ← (功能之後放這)
     │   ├── pages/
     │   │   ├── HomePage.java       ← 登入畫面
     │   │   └── Menu.java         ← 功能選單畫面
