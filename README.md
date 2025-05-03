@@ -14,3 +14,5 @@ Swing_Test/
     └── images/
         └── demo.png         ← icon 圖片
 </pre>
+
+執行程式為MainWindow.java
