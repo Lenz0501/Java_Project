@@ -1,4 +1,4 @@
-//SettingsPage.java
+//Menu.java
 package myapp.pages;
 
 import myapp.MainWindow;
