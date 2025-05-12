@@ -7,8 +7,8 @@ public class UserManager {  //管理帳戶
 	private HashMap<String, User> users = new HashMap<>();
 	
 	public UserManager() {  //初始值，先放了兩個帳戶
-		users.put("A001", new User("A001", "user1", "aaaa", 1000));
-		users.put("A002", new User("A002", "user2", "bbbb", 5000));
+		addUser("aaaa", "1234", 1000);
+		addUser("jimin", "0000", 5000);
 	}
 	
 	public User getUser(String id) {  //用id取得帳戶
@@ -27,8 +27,9 @@ public class UserManager {  //管理帳戶
 	}
 
 	
-	public void addUser(String id, String username, String password, int balance) {  //新增帳戶
-		users.put(id, new User(id, username, password, balance));
+	public void addUser(String username, String password, int balance) {  //新增帳戶
+		User newUser = new User(username, password, balance);
+		users.put(newUser.getId(), newUser);
 	}
 }
 	

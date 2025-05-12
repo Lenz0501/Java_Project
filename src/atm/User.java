@@ -1,13 +1,15 @@
 package atm;
 
 public class User {  //帳戶資訊
+	private static int counter = 1;
 	private String id;
 	private String username;
 	private String password;
 	private int balance;
 	
-	public User(String id, String username, String password, int balance) {  //初始值
-		this.id = id;
+	public User(String username, String password, int balance) {  //初始值
+		this.id = String.format("%05d", counter); //5位數的編號
+		counter++;
 		this.username = username;
 		this.password = password;
 		this.balance = balance;
