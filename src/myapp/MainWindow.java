@@ -1,6 +1,7 @@
 //MainWindow.java
 package myapp;
 
+import myapp.pages.CreateAccountPage;
 import myapp.pages.HomePage;
 import myapp.pages.Menu;
 
@@ -20,6 +21,7 @@ public class MainWindow extends JFrame {
 	
 	    mainPanel.add(new HomePage(this), "home");
 	    mainPanel.add(new Menu(this), "menu");
+	    mainPanel.add(new CreateAccountPage(this), "create");
 	
 		add(mainPanel);
 	    layout.show(mainPanel, "home");
