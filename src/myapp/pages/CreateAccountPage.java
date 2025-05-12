@@ -5,11 +5,14 @@ import javax.swing.*;
 import java.awt.*;
 
 import myapp.MainWindow;
+import atm.UserManager;
+import atm.User;
 
 public class CreateAccountPage extends JPanel {
 	public CreateAccountPage(MainWindow main) {
 		
 		setLayout(new GridLayout(5, 1, 10, 10));
+		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
         // 輸入框大小
         Dimension fieldSize = new Dimension(200, 30);
@@ -38,32 +41,51 @@ public class CreateAccountPage extends JPanel {
         row3.add(label3);
         row3.add(confirmPasswordField);
         
+        // initial amount
+        JPanel row4 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel label4 = new JLabel("Initial Amount:");
+        JTextField balanceField = new JTextField();
+        balanceField.setPreferredSize(fieldSize);
+        row4.add(label4);
+        row4.add(balanceField);
+        
         label1.setPreferredSize(new Dimension(150, 30));
         label2.setPreferredSize(new Dimension(150, 30));
         label3.setPreferredSize(new Dimension(150, 30));
+        label4.setPreferredSize(new Dimension(150, 30));
         
-        JPanel row4 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel row5 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton createButton = new JButton("Create Account");
+        row5.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
         createButton.addActionListener( e ->{
         	String user = usernameField.getText();
             char[] passwordChars = passwordField.getPassword();
             String pass = new String(passwordChars);
             char[] cpasswordChars = confirmPasswordField.getPassword();
-            String cpass = new String(passwordChars);
+            String cpass = new String(cpasswordChars);
+            String initialAmount = balanceField.getText();
+            int amount = initialAmount.isEmpty() ? 0:Integer.parseInt(initialAmount);
+        	
+            if (user.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter username.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (pass.isEmpty() || cpass.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter password.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (!pass.equals(cpass)) {
+                JOptionPane.showMessageDialog(null, "Passwords do not match. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                System.out.println("Successfully Created Account.");
+                main.switchPage("home");
+            }
             System.out.println("Username: " + user);
             System.out.println("Password: " + pass);
-            System.out.println("Password: " + cpass);
-        	
-            if(pass.compareTo(cpass)==0) {
-            	System.out.println("Successly Create Account.");
-            	main.switchPage("home");
-            }
+            System.out.println("Amount: $" + amount);
         });
-        row4.add(createButton);
+        row5.add(createButton);
 
         add(row1);
         add(row2);
         add(row3);
         add(row4);
+        add(row5);
 	}
 }

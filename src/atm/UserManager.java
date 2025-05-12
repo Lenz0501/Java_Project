@@ -1,6 +1,7 @@
 package atm;
 
 import java.util.HashMap;
+import atm.User;
 
 public class UserManager {  //管理帳戶
 	//HashMap用來放使用者帳戶，對照用
@@ -32,4 +33,3 @@ public class UserManager {  //管理帳戶
 		users.put(newUser.getId(), newUser);
 	}
 }
-	
