@@ -3,10 +3,16 @@ package myapp.pages;
 
 import myapp.MainWindow;
 import javax.swing.*;
+
+import atm.User;
+import atm.UserManager;
+
 import java.awt.*;
 
 public class HomePage extends JPanel {
 	public HomePage(MainWindow main) {
+		UserManager manager = new UserManager();
+		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JPanel topPanel = new JPanel();
@@ -18,9 +24,6 @@ public class HomePage extends JPanel {
         
         JPanel bottomPanel = new JPanel(new BorderLayout());
         bottomPanel.setPreferredSize(new Dimension(600, 360));
-        /*JButton toMenu = new JButton("To menu");
-        toMenu.addActionListener(e -> main.switchPage("menu"));
-        bottomPanel.add(toMenu);*/
 
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
@@ -44,14 +47,21 @@ public class HomePage extends JPanel {
         JPanel buttonRow = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton submitButton = new JButton("Submit");
         submitButton.addActionListener(e -> {
-        	main.switchPage("menu");
+            // 移植TestATM
             String user = username.getText();
             char[] passwordChars = password.getPassword();
             String pass = new String(passwordChars);
-            System.out.println("Username: " + user);
-            System.out.println("Password: " + pass);
-        	username.setText("");
-            password.setText("");
+
+            if (manager.validate(user, pass)) {
+            	User currentUser = manager.getUser(user);
+                System.out.println("✅ 登入成功，歡迎 " + currentUser.getUsername());
+                main.switchPage("menu");
+    	        username.setText("");
+    	        password.setText("");
+            } else {
+                System.out.println("❌ 帳號或密碼錯誤，請重新輸入");
+                JOptionPane.showMessageDialog(null, "帳號或密碼錯誤，請重新輸入", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         });
         JButton resetButton = new JButton("Reset");
         buttonRow.add(submitButton);

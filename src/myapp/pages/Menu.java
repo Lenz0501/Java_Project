@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Menu extends JPanel {
 	public Menu(MainWindow main) {
-		int flag=1;
+		boolean admin = true;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JPanel topPanel = new JPanel();
@@ -47,7 +47,7 @@ public class Menu extends JPanel {
         });
         bottomPanel.add(transactionButton);
         
-        if(flag==1) {
+        if(admin) {
         	JButton createAccountButton = new JButton("Create Account");
         	createAccountButton.addActionListener( e ->{
             	System.out.println("Create Account Button clicked.");
@@ -64,7 +64,7 @@ public class Menu extends JPanel {
         bottomPanel.add(logoutButton);
         
         int emptyBoxNum=2;
-        if(flag==1) emptyBoxNum--;
+        if(admin) emptyBoxNum--;
         for (int i = 0; i < emptyBoxNum; i++) {
             bottomPanel.add(new JLabel(""));
         }

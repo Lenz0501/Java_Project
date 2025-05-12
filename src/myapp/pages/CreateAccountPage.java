@@ -63,7 +63,7 @@ public class CreateAccountPage extends JPanel {
             String pass = new String(passwordChars);
             char[] cpasswordChars = confirmPasswordField.getPassword();
             String cpass = new String(cpasswordChars);
-            String initialAmount = balanceField.getText();
+            String initialAmount = balanceField.getText().trim();
             int amount = initialAmount.isEmpty() ? 0:Integer.parseInt(initialAmount);
         	
             if (user.isEmpty()) {
@@ -74,11 +74,21 @@ public class CreateAccountPage extends JPanel {
                 JOptionPane.showMessageDialog(null, "Passwords do not match. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 System.out.println("Successfully Created Account.");
+                UserManager manager = new UserManager();
+                // 新增帳戶並拿回 newUser 物件
+                User newUser = manager.addUser(user, pass, amount);
+
+                // 把新帳戶ID顯示出來
+                System.out.println("✅ 帳戶新增成功！");
+                System.out.println("👉 請記住您的帳號ID：" + newUser.getId());
+                
+                usernameField.setText("");
+                passwordField.setText("");
+                confirmPasswordField.setText("");
+                balanceField.setText("");
+                
                 main.switchPage("home");
             }
-            System.out.println("Username: " + user);
-            System.out.println("Password: " + pass);
-            System.out.println("Amount: $" + amount);
         });
         row5.add(createButton);
 
