@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class Menu extends JPanel {
 	public Menu(MainWindow main) {
+		boolean admin = true;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JPanel topPanel = new JPanel();
@@ -26,30 +27,45 @@ public class Menu extends JPanel {
         balanceButton.addActionListener( e ->{
         	System.out.println("Balance Button clicked.");
         });
+        bottomPanel.add(balanceButton);
+        
         JButton depositButton = new JButton("Deposit");
         depositButton.addActionListener( e ->{
         	System.out.println("Deposit Button clicked.");
         });
+        bottomPanel.add(depositButton);
+        
         JButton withdrawalButton = new JButton("Withdrawal");
         withdrawalButton.addActionListener( e ->{
         	System.out.println("Withdrawal Button clicked.");
         });
+        bottomPanel.add(withdrawalButton);
+        
         JButton transactionButton = new JButton("Recent Transaction");
         transactionButton.addActionListener( e ->{
         	System.out.println("Recent Transaction Button clicked.");
         });
+        bottomPanel.add(transactionButton);
+        
+        if(admin) {
+        	JButton createAccountButton = new JButton("Create Account");
+        	createAccountButton.addActionListener( e ->{
+            	System.out.println("Create Account Button clicked.");
+            	main.switchPage("create");
+            });
+        	bottomPanel.add(createAccountButton);
+        }
+        
         JButton logoutButton = new JButton("Logout");
         logoutButton.addActionListener( e ->{
         	System.out.println("Logout Button clicked.");
         	main.switchPage("home");
         });
-        bottomPanel.add(balanceButton);
-        bottomPanel.add(depositButton);
-        bottomPanel.add(withdrawalButton);
-        bottomPanel.add(transactionButton);
         bottomPanel.add(logoutButton);
         
-        for (int i = 0; i < 3; i++) {
+        int emptyBoxNum=2;
+        if(admin) emptyBoxNum--;
+        for (int i = 0; i < emptyBoxNum; i++) {
             bottomPanel.add(new JLabel(""));
         }
 
