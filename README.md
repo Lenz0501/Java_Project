@@ -22,16 +22,29 @@ Swing_Test/
 
 執行程式為MainWindow.java
 
----
-## 5/13 更新
+## 5/3 更新
+- 導入 MainWindow: 主視窗程式
+> 掌控各個分頁
+> 換頁函式
 
+- 新增 HomePage:
+> 上方顯示title ATM Simulation System
+> 單個按鈕前往menu頁面
+
+- 新增 Menu:
+> 5項基本選單功能(Balance, Deposit, Withdrawal, Recent Transaction, Logout)
+> 每個按鈕按下皆會在termainl顯示所按的按鈕名稱
+> Logout會回到homepage
+
+
+## 5/13 更新
 - 新增 CreateAccountPage: 開戶介面(username, password, confirm password, initial amount)  
 > 加入ATM class功能
 驗證密碼不同、無username有錯誤提示框  
 初始存款若未填定為0  
 開戶資料同步到csv檔  
 
-- HomePage更新:  
+- HomePage 更新:  
 > 登入頁面加入密碼驗證機制，錯誤有提示框  
 
 - Menu更新:  
@@ -43,9 +56,8 @@ Swing_Test/
 **:clipboard:愈追加功能**   
 使用username登入
 
----
-## 5/15 修復更新
 
+## 5/15 修復更新
 - HomePage bug 修補:  
 > 能順利登入新增的帳號
 
