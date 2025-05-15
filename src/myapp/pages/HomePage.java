@@ -10,9 +10,7 @@ import atm.UserManager;
 import java.awt.*;
 
 public class HomePage extends JPanel {
-	public HomePage(MainWindow main) {
-		UserManager manager = new UserManager();
-		
+	public HomePage(MainWindow main, UserManager manager) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JPanel topPanel = new JPanel();
@@ -55,6 +53,7 @@ public class HomePage extends JPanel {
             if (manager.validate(user, pass)) {
             	User currentUser = manager.getUser(user);
                 System.out.println("✅ 登入成功，歡迎 " + currentUser.getUsername());
+                main.getMenuPage().setUser(currentUser);
                 main.switchPage("menu");
     	        username.setText("");
     	        password.setText("");
