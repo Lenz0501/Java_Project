@@ -42,3 +42,13 @@ Swing_Test/
 
 **:clipboard:愈追加功能**   
 使用username登入
+
+---
+## 5/15 修復更新
+
+- HomePage bug 修補:  
+> 能順利登入新增的帳號
+
+- Menu更新: 
+> User參數能順利傳入
+> 左上角顯示username
