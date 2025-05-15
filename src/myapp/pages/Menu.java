@@ -3,10 +3,17 @@ package myapp.pages;
 
 import myapp.MainWindow;
 import javax.swing.*;
+
+import atm.UserManager;
+import atm.User;
+
 import java.awt.*;
 
 public class Menu extends JPanel {
-	public Menu(MainWindow main) {
+	private User currentUser;
+	private JLabel userLabel;
+	
+	public Menu(MainWindow main, UserManager manager) {
 		boolean admin = true;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
@@ -14,8 +21,10 @@ public class Menu extends JPanel {
         topPanel.setPreferredSize(new Dimension(600, 40));
         topPanel.setBackground(Color.WHITE);
         JLabel titleLabel = new JLabel("ATM Simulation System");
+        userLabel = new JLabel("Welcome (Guest)");
         titleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 24));
         topPanel.add(titleLabel);
+        topPanel.add(userLabel);
 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setPreferredSize(new Dimension(600, 360));
@@ -72,4 +81,11 @@ public class Menu extends JPanel {
         add(topPanel);
         add(bottomPanel);
 	}
+	
+	public void setUser(User user) {
+        this.currentUser = user;
+        System.out.println("👤 Current user: " + user.getUsername());
+        userLabel.setText("Welcome, " + currentUser.getUsername());
+        // 你也可以更新畫面上的 Label、資訊之類的
+    }
 }

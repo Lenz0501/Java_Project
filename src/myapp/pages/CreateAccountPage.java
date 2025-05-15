@@ -9,7 +9,7 @@ import atm.UserManager;
 import atm.User;
 
 public class CreateAccountPage extends JPanel {
-	public CreateAccountPage(MainWindow main) {
+	public CreateAccountPage(MainWindow main, UserManager manager) {
 		
 		setLayout(new GridLayout(5, 1, 10, 10));
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -74,7 +74,6 @@ public class CreateAccountPage extends JPanel {
                 JOptionPane.showMessageDialog(null, "Passwords do not match. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 System.out.println("Successfully Created Account.");
-                UserManager manager = new UserManager();
                 // 新增帳戶並拿回 newUser 物件
                 User newUser = manager.addUser(user, pass, amount);
 
