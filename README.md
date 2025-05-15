@@ -37,8 +37,17 @@ Swing_Test/
 > Logout會回到homepage
 
 
+## 5/10 更新
+- HomePage 更新
+> Username、Password 輸入框
+> Submit、Reset 按鈕
+> Submit 按鈕前往menu頁面
+> Reset 按鈕清空兩個輸入框
+
+
 ## 5/13 更新
-- 新增 CreateAccountPage: 開戶介面(username, password, confirm password, initial amount)  
+- 新增 CreateAccountPage:
+> 開戶介面(username, password, confirm password, initial amount)  
 > 加入ATM class功能
 驗證密碼不同、無username有錯誤提示框  
 初始存款若未填定為0  
