@@ -52,3 +52,6 @@ Swing_Test/
 - Menu更新: 
 > User參數能順利傳入
 > 左上角顯示username
+
+**:clipboard:愈追加功能**   
+運用Java的繼承功能區分一般使用者和管理員
