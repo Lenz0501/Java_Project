@@ -38,7 +38,7 @@ Swing_Test/
 > 變數domin，true會多出CreateAccountPage的選項  
 
 **:x:bug**  
-新開帳戶無法馬上登入
+新開帳戶無法馬上登入 (已解決)
 
 **:clipboard:愈追加功能**   
 使用username登入
