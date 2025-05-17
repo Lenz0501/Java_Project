@@ -22,7 +22,7 @@ public class MainWindow extends JFrame {
 	private WithdrawPage withdrawPage;
 	
 	public MainWindow() {
-	    setTitle("Demo");
+	    setTitle("ATM Simulation System");
 	    setSize(600, 400);
 	    ImageIcon icon = new ImageIcon(MainWindow.class.getResource("/images/atm-machine.png"));
         setIconImage(icon.getImage());
