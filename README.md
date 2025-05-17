@@ -101,3 +101,28 @@ Swing_Test/
 
 **:clipboard:愈追加功能**   
 運用Java的繼承功能區分一般使用者和管理員
+  
+  
+## 5/17 更新
+- 新增 BalancePage:
+> 顯示目前User的餘額
+> 下方兩側有兩個按鈕，分別回到menu跟logout
+
+- 新增 DepositPage:
+> 輸入框輸入存款金額
+> submit按鈕按下存入金額，並跳出訊息框呈現存款資訊
+> 存款完會導向BalancePage
+
+- 新增 WithdrawPage:
+> 輸入框輸入提款金額
+> submit按鈕按下提款金額，若餘額不足會跳出錯誤訊息框，成功則呈現存款資訊
+> 提款完會導向BalancePage
+
+- Menu 更新
+> logout後會呼叫saveToCSV()，儲存當次交易內容
+> 暫時移除Recent Transaction按鈕
+
+- CreateAccountPage 更新
+> 右下方加入回到menu按鈕
+
+- Icon 更新
