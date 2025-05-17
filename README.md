@@ -11,13 +11,17 @@ Swing_Test/
     │   │   ├── User.java       ← 使用者class
     │   │   └── UserManager.java         ← 使用者帳戶管理
     │   ├── pages/
+    │   │   ├── BalancePage.java       ← 餘額頁面
     │   │   ├── CreateAccountPage.java       ← 開戶頁面
+    │   │   ├── DepositPage.java       ← 存款頁面
     │   │   ├── HomePage.java       ← 登入頁面
-    │   │   └── Menu.java         ← 功能選單頁面
+    │   │   ├── Menu.java         ← 功能選單頁面
+    │   │   └── WithdrawPage.java         ← 提款頁面
     │   └── MainWindow.java       ← 主視窗程式
     │
     └── images/
-        └── demo.png         ← icon 圖片
+        ├── atm-machine.png         ← icon 圖片
+        └── demo.png         ← 測試用 icon 圖片
 </pre>
 
 執行程式為MainWindow.java
