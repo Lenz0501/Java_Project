@@ -54,9 +54,25 @@ public class CreateAccountPage extends JPanel {
         label3.setPreferredSize(new Dimension(150, 30));
         label4.setPreferredSize(new Dimension(150, 30));
         
-        JPanel row5 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        JButton createButton = new JButton("Create Account");
+        JPanel row5 = new JPanel();
+        row5.setLayout(new BoxLayout(row5, BoxLayout.X_AXIS));
         row5.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
+        
+        JPanel leftBottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JButton backButton = new JButton("< Back to Menu");
+		backButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		backButton.setPreferredSize(new Dimension(160, 30));
+		backButton.addActionListener( e ->{
+        	System.out.println("Back Button clicked.");
+        	main.switchPage("menu");
+        });
+		leftBottomPanel.add(backButton);
+		row5.add(leftBottomPanel);
+        
+        //JPanel row5 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		JPanel rightBottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JButton createButton = new JButton("Create Account");
+		createButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         createButton.addActionListener( e ->{
         	String user = usernameField.getText();
             char[] passwordChars = passwordField.getPassword();
@@ -89,7 +105,8 @@ public class CreateAccountPage extends JPanel {
                 main.switchPage("home");
             }
         });
-        row5.add(createButton);
+        rightBottomPanel.add(createButton);
+		row5.add(rightBottomPanel);
 
         add(row1);
         add(row2);
