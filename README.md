@@ -5,11 +5,12 @@
 Swing_Test/
 ├── accounts.csv       ← 帳戶資料
 └── src/
+    ├── atm/       ← ATM 類別
+    │   ├── TestATM.java       ← 測試程式
+    │   ├── User.java       ← 使用者類別
+    │   └── UserManager.java         ← 使用者帳戶管理類別
+    │
     ├── myapp/
-    │   ├── atm/       ← (功能之後放這)
-    │   │   ├── TestATM.java       ← 測試程式
-    │   │   ├── User.java       ← 使用者class
-    │   │   └── UserManager.java         ← 使用者帳戶管理
     │   ├── pages/
     │   │   ├── BalancePage.java       ← 餘額頁面
     │   │   ├── CreateAccountPage.java       ← 開戶頁面
