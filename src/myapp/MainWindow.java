@@ -1,9 +1,12 @@
 //MainWindow.java
 package myapp;
 
+import myapp.pages.BalancePage;
 import myapp.pages.CreateAccountPage;
+import myapp.pages.DepositPage;
 import myapp.pages.HomePage;
 import myapp.pages.Menu;
+import myapp.pages.WithdrawPage;
 import atm.UserManager;
 
 import javax.swing.*;
@@ -14,20 +17,34 @@ public class MainWindow extends JFrame {
 	JPanel mainPanel = new JPanel(layout);
 	
 	private Menu menuPage;
+	private BalancePage balancePage;
+	private DepositPage depositPage;
+	private WithdrawPage withdrawPage;
 	
 	public MainWindow() {
 	    setTitle("Demo");
 	    setSize(600, 400);
-	    ImageIcon icon = new ImageIcon(MainWindow.class.getResource("/images/demo.png"));
+	    ImageIcon icon = new ImageIcon(MainWindow.class.getResource("/images/atm-machine.png"));
         setIconImage(icon.getImage());
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	    UserManager userManager = new UserManager();
+	    
 	    mainPanel.add(new HomePage(this, userManager), "home");
+	    
 	    menuPage = new Menu(this, userManager);
         mainPanel.add(menuPage, "menu");
-	    //mainPanel.add(new Menu(this, userManager), "menu");
+        
 	    mainPanel.add(new CreateAccountPage(this, userManager), "create");
+	    
+	    balancePage = new BalancePage(this, userManager);
+	    mainPanel.add(balancePage, "balance");
+	    
+	    depositPage = new DepositPage(this, userManager);
+	    mainPanel.add(depositPage, "deposit");
+	    
+	    withdrawPage = new WithdrawPage(this, userManager);
+	    mainPanel.add(withdrawPage, "withdraw");
 	
 		add(mainPanel);
 	    layout.show(mainPanel, "home");
@@ -41,6 +58,18 @@ public class MainWindow extends JFrame {
 	
 	public Menu getMenuPage() {
         return menuPage;
+    }
+	
+	public BalancePage getBalancePage() {
+        return balancePage;
+    }
+	
+	public DepositPage getDepositPage() {
+        return depositPage;
+    }
+	
+	public WithdrawPage getWithdrawPage() {
+        return withdrawPage;
     }
 		
 	public static void main(String[] args) {

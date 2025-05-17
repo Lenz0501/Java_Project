@@ -28,33 +28,39 @@ public class Menu extends JPanel {
 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setPreferredSize(new Dimension(600, 360));
-        bottomPanel.setLayout(new GridLayout(4, 2, 20, 20 ));
+        bottomPanel.setLayout(new GridLayout(3, 2, 20, 20 ));
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(10,20,20,20));
         bottomPanel.setBackground(Color.WHITE);
 
         JButton balanceButton = new JButton("Balance");
         balanceButton.addActionListener( e ->{
         	System.out.println("Balance Button clicked.");
+        	main.getBalancePage().setBalance(currentUser);
+        	main.switchPage("balance");
         });
         bottomPanel.add(balanceButton);
         
         JButton depositButton = new JButton("Deposit");
         depositButton.addActionListener( e ->{
         	System.out.println("Deposit Button clicked.");
+        	main.getDepositPage().setDeposit(currentUser);
+        	main.switchPage("deposit");
         });
         bottomPanel.add(depositButton);
         
         JButton withdrawalButton = new JButton("Withdrawal");
         withdrawalButton.addActionListener( e ->{
         	System.out.println("Withdrawal Button clicked.");
+        	main.getWithdrawPage().setWithdraw(currentUser);
+        	main.switchPage("withdraw");
         });
         bottomPanel.add(withdrawalButton);
         
-        JButton transactionButton = new JButton("Recent Transaction");
+        /*JButton transactionButton = new JButton("Recent Transaction");
         transactionButton.addActionListener( e ->{
         	System.out.println("Recent Transaction Button clicked.");
         });
-        bottomPanel.add(transactionButton);
+        bottomPanel.add(transactionButton);*/
         
         if(admin) {
         	JButton createAccountButton = new JButton("Create Account");
@@ -68,11 +74,12 @@ public class Menu extends JPanel {
         JButton logoutButton = new JButton("Logout");
         logoutButton.addActionListener( e ->{
         	System.out.println("Logout Button clicked.");
+        	manager.saveToCSV();
         	main.switchPage("home");
         });
         bottomPanel.add(logoutButton);
         
-        int emptyBoxNum=2;
+        int emptyBoxNum=1;
         if(admin) emptyBoxNum--;
         for (int i = 0; i < emptyBoxNum; i++) {
             bottomPanel.add(new JLabel(""));
