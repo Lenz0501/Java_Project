@@ -27,6 +27,7 @@ Swing_Test/
 
 執行程式為MainWindow.java
 
+# 更新日誌
 
 ## 5/3 更新
 - 導入 MainWindow: 主視窗程式  
