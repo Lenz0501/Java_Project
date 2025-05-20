@@ -11,11 +11,16 @@ import atm.User;
 public class Menu extends JPanel {
 	private User currentUser;
 	private JLabel userLabel;
+
+	private JPanel centerPanel;
+	private MainWindow main;
+    private UserManager manager;
 	
 	public Menu(MainWindow main, UserManager manager) {
-		boolean admin = true;
 		setLayout(new BorderLayout());
-        
+		this.main = main;
+        this.manager = manager;
+		
 		// ===== TOP =====
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setPreferredSize(new Dimension(600, 50));
@@ -26,12 +31,23 @@ public class Menu extends JPanel {
         add(topPanel, BorderLayout.NORTH);
         
         // ===== CENTER =====
-        JPanel centerPanel = new JPanel(new GridLayout(3, 2, 20, 20 ));
+        centerPanel = new JPanel(new GridLayout(3, 2, 20, 20 ));
         centerPanel.setPreferredSize(new Dimension(600, 360));
         centerPanel.setBorder(BorderFactory.createEmptyBorder(10,30,30,30));
-        // centerPanel.setBackground(Color.WHITE);
-        Font buttonFont = new Font("Segoe UI", Font.PLAIN, 24);
+        add(centerPanel, BorderLayout.CENTER);
 
+        add(centerPanel, BorderLayout.CENTER);
+	}
+	
+	public void setUser(User user) {
+        this.currentUser = user;
+        //System.out.println("👤 Current user: " + user.getUsername());
+        userLabel.setText(" Welcome, " + currentUser.getUsername());
+        // 你也可以更新畫面上的 Label、資訊之類的
+        
+        centerPanel.removeAll();
+        
+        Font buttonFont = new Font("Segoe UI", Font.PLAIN, 24);
         JButton balanceButton = new JButton("Balance");
         balanceButton.setFont(buttonFont);
         balanceButton.addActionListener( e ->{
@@ -59,6 +75,7 @@ public class Menu extends JPanel {
         });
         centerPanel.add(withdrawalButton);
         
+        boolean admin = "admin".equalsIgnoreCase(currentUser.getRole());
         if(admin) {
 	        JButton transactionButton = new JButton("Recent Transaction");
 	        transactionButton.setFont(buttonFont);
@@ -92,14 +109,8 @@ public class Menu extends JPanel {
         for (int i = 0; i < emptyBoxNum; i++) {
         	centerPanel.add(new JLabel(""));
         }
-
-        add(centerPanel, BorderLayout.CENTER);
-	}
-	
-	public void setUser(User user) {
-        this.currentUser = user;
-        System.out.println("👤 Current user: " + user.getUsername());
-        userLabel.setText(" Welcome, " + currentUser.getUsername());
-        // 你也可以更新畫面上的 Label、資訊之類的
+        
+        centerPanel.revalidate();
+        centerPanel.repaint();
     }
 }

@@ -162,7 +162,7 @@ public class HomePage extends JPanel {
 		    String pass = new String(passwordChars);
 
 		    if (manager.validate(user, pass)) {
-		        User currentUser = manager.getUser(user);
+		        User currentUser = manager.getUserByUsername(user);
 		        System.out.println("✅ 登入成功，歡迎 " + currentUser.getUsername());
 		        main.getMenuPage().setUser(currentUser);
 		        main.switchPage("menu");
