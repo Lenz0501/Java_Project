@@ -33,14 +33,15 @@ public class UserManager {
 
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                if (data.length == 4) {
+                if (data.length == 5) {
                     String id = data[0];
                     String username = data[1];
                     String password = data[2];
                     int balance = Integer.parseInt(data[3]);
-
+                    String role = data[4];
+                    
                     //建立帳戶並放進users
-                    User user = new User(id, username, password, balance);
+                    User user = new User(id, username, password, balance,role);
                     users.put(id, user);
 
                     //更新ID避免重複
@@ -56,8 +57,8 @@ public class UserManager {
     }
 
     //新增帳戶，回傳新增的帳戶資料
-    public User addUser(String username, String password, int balance) {
-        User newUser = new User(username, password, balance);
+    public User addUser(String username, String password, int balance, String role) {
+        User newUser = new User(username, password, balance, role);
         users.put(newUser.getId(), newUser);
         saveUserToFile(newUser);
         return newUser;
@@ -67,7 +68,7 @@ public class UserManager {
     private void saveUserToFile(User user) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME, true));
-            String line = user.getId() + "," + user.getUsername() + "," + user.getPassword() + "," + user.getBalance();
+            String line = user.getId() + "," + user.getUsername() + "," + user.getPassword() + "," + user.getBalance() + "," + user.getRole();
             bw.write(line);
             bw.newLine();
             bw.close();
@@ -77,11 +78,11 @@ public class UserManager {
         }
     }
     
-    //把所有更新的帳戶覆蓋寫入存回CSV
+  //把所有更新的帳戶覆蓋寫入存回CSV
     public void saveToCSV() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (User u : users.values()) {
-                String line = u.getId() + "," + u.getUsername() + "," + u.getPassword() + "," + u.getBalance();
+                String line = u.getId() + "," + u.getUsername() + "," + u.getPassword() + "," + u.getBalance() + "," + u.getRole();
                 bw.write(line);
                 bw.newLine();
             }
@@ -91,15 +92,26 @@ public class UserManager {
             e.printStackTrace();
         }
     }
+    
 
     //用id查詢帳戶
     public User getUser(String id) {
         return users.get(id);
     }
 
+    //用使用者名稱查詢帳戶（用於登入）
+    public User getUserByUsername(String username) {
+        for (User user : users.values()) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+    
     //驗證帳密
-    public boolean validate(String id, String password) {
-        User user = users.get(id);
+    public boolean validate(String username, String password) {
+    	User user = getUserByUsername(username); 
         if (user != null) {
             return user.checkPassword(password);
         } else {

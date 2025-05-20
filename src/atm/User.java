@@ -9,22 +9,25 @@ public class User {
     private String username;
     private String password;
     private int balance;
-
+    protected String role; //admin or general
+    
     //從CSV讀入時會用這個
-    public User(String id, String username, String password, int balance) {
+    public User(String id, String username, String password, int balance,String role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.balance = balance;
+        this.role = role;
     }
 
     //新增帳戶時會用這個(自動產生id)
-    public User(String username, String password, int balance) {
+    public User(String username, String password, int balance,String role) {
         this.id = String.format("%05d", counter);  //產生五位數id（補0）
-        counter++;  // counter遞增
+        counter++;  //counter遞增
         this.username = username;
         this.password = password;
         this.balance = balance;
+        this.role = role;
     }
 
     //從CSV讀取資料時，並把counter更新到最新
@@ -35,6 +38,11 @@ public class User {
         }
     }
 
+    //比對密碼
+    public boolean checkPassword(String pw) {
+        return password.equals(pw);
+    }
+    
     //取得id
     public String getId() {
         return id;
@@ -55,10 +63,7 @@ public class User {
         return balance;
     }
     
-    //檢查密碼
-    public boolean checkPassword(String inputPW) {
-        return password.equals(inputPW);
-    }
+    public String getRole() { return role; }
 
     //存款功能
     public void deposit(int amount) {

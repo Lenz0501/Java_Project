@@ -1,4 +1,5 @@
-2,abcd,111,1000
-3,apple,222,5000
-1,apt,333,2500
-4,bbb,0,600
+2,abcd,111,1000,general
+3,apple,222,5000,general
+1,admin,admin123,10000,admin
+4,bbb,333,600,general
+6,test,test123,2000,general
