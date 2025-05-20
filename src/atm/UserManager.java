@@ -114,7 +114,26 @@ public class UserManager {
             e.printStackTrace();
         }
     }
-    
+
+    // 寫入交易資料
+    public void saveTransactionToCSV(User user, String amount) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(Transaction_FILE_NAME, true))) {
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedTime = now.format(formatter);
+
+            String line = formattedTime + "," + user.getId() + "," + user.getUsername() + "," +  amount + "," + user.getBalance();
+            bw.write(line);
+            bw.flush();
+            bw.newLine();
+
+            System.out.println("✅ 交易資料已儲存");
+
+        } catch (IOException e) {
+            System.out.println("❌ 儲存交易資料時發生錯誤！");
+            e.printStackTrace();
+        }
+    }
 
     //用id查詢帳戶
     public User getUser(String id) {
