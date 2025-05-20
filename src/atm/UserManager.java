@@ -8,7 +8,11 @@ public class UserManager {
     private HashMap<String, User> users = new HashMap<>();
 
     //檔名設定
-    private static final String FILE_NAME = "accounts.csv";
+    private static final String FILE_NAME =
+    		System.getProperty("user.dir") + File.separator + "accounts.csv";
+    
+    private static final String Transaction_FILE_NAME =
+    		System.getProperty("user.dir") + File.separator + "transaction.csv";
 
     //啟動時讀取帳戶資料
     public UserManager() {
