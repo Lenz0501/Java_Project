@@ -2,6 +2,8 @@ package atm;
 
 import java.io.*;
 import java.util.HashMap;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class UserManager {
     //用來記錄所有帳戶的表格（id - user的資料）
@@ -52,6 +54,26 @@ public class UserManager {
             br.close();
         } catch (IOException e) {
             System.out.println("讀取帳戶資料時發生錯誤！");
+            e.printStackTrace();
+        }
+
+        // Add
+        try {
+            File file = new File(Transaction_FILE_NAME);
+
+            // 若檔案不存在，則建立新檔並寫入欄位標題
+            if (!file.exists()) {
+                System.out.println("交易檔案不存在，將建立新的交易檔案。");
+
+                boolean created = file.createNewFile(); // 嘗試建立空白檔案
+                if (created) {
+                    System.out.println("✅ 新交易檔案已建立！");
+                } else {
+                    System.out.println("⚠️ 檔案建立失敗！");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("讀取或建立交易檔時發生錯誤！");
             e.printStackTrace();
         }
     }
