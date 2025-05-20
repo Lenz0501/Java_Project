@@ -138,6 +138,8 @@ public class CreateAccountPage extends JPanel {
         JPasswordField confirmPasswordField = new JPasswordField();
         JLabel label4 = new JLabel("Initial Amount :");
         JTextField balanceField = new JTextField();
+        JLabel label5 = new JLabel("Admin Identity :");
+        JCheckBox  adminCheck  = new JCheckBox();
         
         // 通用樣式
         Font labelFont = new Font("Segoe UI", Font.PLAIN, 20);
@@ -145,6 +147,7 @@ public class CreateAccountPage extends JPanel {
         label2.setFont(labelFont);
         label3.setFont(labelFont);
         label4.setFont(labelFont);
+        label5.setFont(labelFont);
         Font fieldFont = new Font("Dialog", Font.PLAIN, 18);
         usernameField.setFont(fieldFont);
         passwordField.setFont(fieldFont);
@@ -178,6 +181,11 @@ public class CreateAccountPage extends JPanel {
         middlePanel.add(label4, gbc);
         gbc.gridx = 1;
         middlePanel.add(balanceField, gbc);
+        
+        gbc.gridx = 0; gbc.gridy = 4;
+        middlePanel.add(label5, gbc);
+        gbc.gridx = 1;
+        middlePanel.add(adminCheck, gbc);
         
         add(middlePanel, BorderLayout.CENTER);
 
@@ -219,12 +227,9 @@ public class CreateAccountPage extends JPanel {
                 JOptionPane.showMessageDialog(null, "Passwords do not match. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 System.out.println("Successfully Created Account.");
-                // 新增帳戶並拿回 newUser 物件
-                User newUser = manager.addUser(user, pass, amount);
-
-                // 把新帳戶ID顯示出來
-                System.out.println("✅ 帳戶新增成功！");
-                System.out.println("👉 請記住您的帳號ID：" + newUser.getId());
+                
+                String roleString = adminCheck.isSelected() ? "admin" : "general";
+                manager.addUser(user, pass, amount, roleString);
                 
                 usernameField.setText("");
                 passwordField.setText("");
