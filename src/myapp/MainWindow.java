@@ -7,6 +7,7 @@ import myapp.pages.DepositPage;
 import myapp.pages.HomePage;
 import myapp.pages.Menu;
 import myapp.pages.WithdrawPage;
+import myapp.pages.RecentTransactionPage;
 import atm.UserManager;
 
 import javax.swing.*;
@@ -20,10 +21,11 @@ public class MainWindow extends JFrame {
 	private BalancePage balancePage;
 	private DepositPage depositPage;
 	private WithdrawPage withdrawPage;
+	private RecentTransactionPage recentTransactionPage;
 	
 	public MainWindow() {
-	    setTitle("Demo");
-	    setSize(600, 400);
+	    setTitle("ATM Simulation System");
+	    setSize(900, 600);
 	    ImageIcon icon = new ImageIcon(MainWindow.class.getResource("/images/atm-machine.png"));
         setIconImage(icon.getImage());
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -45,6 +47,9 @@ public class MainWindow extends JFrame {
 	    
 	    withdrawPage = new WithdrawPage(this, userManager);
 	    mainPanel.add(withdrawPage, "withdraw");
+	    
+	    recentTransactionPage = new RecentTransactionPage(this, userManager);
+	    mainPanel.add(recentTransactionPage, "transaction");
 	
 		add(mainPanel);
 	    layout.show(mainPanel, "home");
@@ -70,6 +75,10 @@ public class MainWindow extends JFrame {
 	
 	public WithdrawPage getWithdrawPage() {
         return withdrawPage;
+    }
+	
+	public RecentTransactionPage getTransactionPage() {
+        return recentTransactionPage;
     }
 		
 	public static void main(String[] args) {

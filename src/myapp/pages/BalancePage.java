@@ -12,7 +12,7 @@ public class BalancePage extends JPanel {
 	private User currentUser;
 	private JLabel balanceDisplayLabel;
 	
-	public BalancePage(MainWindow main, UserManager manager) {
+	/*public BalancePage(MainWindow main, UserManager manager) {
 		setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
@@ -63,6 +63,48 @@ public class BalancePage extends JPanel {
 		add(topPanel);
 		add(middlePanel);
 		add(bottomPanel);
+	}*/
+	public BalancePage(MainWindow main, UserManager manager) {
+		setLayout(new BorderLayout());
+
+		// ===== TOP =====
+		JPanel topPanel = new JPanel();
+		JLabel titleLabel = new JLabel("Balance");
+		titleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 35));
+		topPanel.add(titleLabel);
+		add(topPanel, BorderLayout.NORTH);
+
+		// ===== CENTER =====
+		JPanel middlePanel = new JPanel();
+		middlePanel.setLayout(new BoxLayout(middlePanel, BoxLayout.Y_AXIS));
+		balanceDisplayLabel = new JLabel("", SwingConstants.CENTER);
+		balanceDisplayLabel.setFont(new Font("Dialog", Font.BOLD, 24));
+		balanceDisplayLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		middlePanel.add(Box.createVerticalGlue());
+		middlePanel.add(balanceDisplayLabel);
+		middlePanel.add(Box.createVerticalGlue());
+		add(middlePanel, BorderLayout.CENTER);
+
+		// ===== BOTTOM =====
+		JPanel bottomPanel = new JPanel(new BorderLayout());
+		bottomPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+
+		JButton backButton = new JButton("< Back to Menu");
+		backButton.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		backButton.setPreferredSize(new Dimension(180, 40));
+		backButton.addActionListener(e -> main.switchPage("menu"));
+		bottomPanel.add(backButton, BorderLayout.WEST);
+
+		JButton logoutButton = new JButton("Logout");
+		logoutButton.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		logoutButton.setPreferredSize(new Dimension(180, 40));
+		logoutButton.addActionListener(e -> {
+			manager.saveToCSV();
+			main.switchPage("home");
+		});
+		bottomPanel.add(logoutButton, BorderLayout.EAST);
+
+		add(bottomPanel, BorderLayout.SOUTH);
 	}
 	
 	public void setBalance(User user) {
