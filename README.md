@@ -4,6 +4,7 @@
 <pre>
 Swing_Test/
 ├── accounts.csv       ← 帳戶資料
+├── transaction.csv       ← 交易資料
 └── src/
     ├── atm/       ← ATM 類別
     │   ├── TestATM.java       ← 測試程式
@@ -17,6 +18,7 @@ Swing_Test/
     │   │   ├── DepositPage.java       ← 存款頁面
     │   │   ├── HomePage.java       ← 登入頁面
     │   │   ├── Menu.java         ← 功能選單頁面
+    │   │   ├── RecentTransactionPage.java         ← 交易資料頁面
     │   │   └── WithdrawPage.java         ← 提款頁面
     │   └── MainWindow.java       ← 主視窗程式
     │
