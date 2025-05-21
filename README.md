@@ -165,26 +165,49 @@ Swing_Test/
 > logout後會呼叫saveToCSV()，儲存當次交易內容  
 > 暫時移除Recent Transaction按鈕  
 
-- CreateAccountPage 更新
+- CreateAccountPage 更新  
 > 右下方加入回到menu按鈕  
 
-- Icon 更新
-
-
-## 5/20 更新 2  
-- User 類別更新
-> 建構子傳入參數多加role (admin,general)
-
-- UserManager 類別更新
-> 新增方法: getUserByUsername()
-> 驗證機制由ID改為username
-
-- TestATM.java 更新
-> 改為由username登入
-> admin帳號有開戶選項
+- Icon 更新  
 
 
 ## 5/20 更新 1  
 - 新增 RecentTransactionPage
-> 用table呈現所有帳戶的交易資訊
-> 資料包括(
+> 用table呈現所有帳戶的交易資訊  
+> 資料包括(時間、ID、username、交易金額、餘額)  
+
+- 新增 transaction.csv
+> |time|ID|username|+/-|balance|
+> |:---:|:---:|:---:|:---:|:---:|
+> |2025-05-19 14:58:00|00002|abcd|+200|800|
+
+- MainWindow 更新
+> 視窗大小調為 900x600
+
+- BalancePage, CreateAccountPage, DepositPage, HomePage, Menu, WithdrawaPage 更新  
+> 介面排版都改以borderlayout排列，以應變視窗大小變化  
+> 部分小功能調整  
+
+
+## 5/20 更新 2  
+- User 類別更新  
+> 建構子傳入參數多加role (admin,general)  
+
+- UserManager 類別更新
+> 新增方法: getUserByUsername()  
+> 驗證機制由ID改為username  
+
+- TestATM.java 更新
+> 改為由username登入  
+> admin帳號有開戶選項  
+
+
+## 5/21 更新  
+- CreateAccountPage 更新
+> 多一欄label跟checkbox (勾選者為admin帳號)
+
+- HomePage 更新
+> 登入呼叫函式改為getUserByUsername (以username跟password登入)
+
+- Menu 更新
+> 登入後確認是否為管理者，決定有無CreateAccountPage, RecentTransactionPage  
