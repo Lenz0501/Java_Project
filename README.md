@@ -30,37 +30,40 @@ Swing_Test/
 執行程式為MainWindow.java  
 
 ## HomePage  
-<img src="https://github.com/user-attachments/assets/7f9c6968-12f0-4089-a86c-db7035a8a5f9" width="600">  
+<img src="https://github.com/user-attachments/assets/ac01dc96-0cd2-427f-9254-e657474584c5" width="600">   
 
 ## Menu  
-<img src="https://github.com/user-attachments/assets/8262696b-0bd7-401b-bac1-596cbfeb30e5" width="600">  
+<img src="https://github.com/user-attachments/assets/2731adfc-275c-4593-bf50-32648bf49542" width="600">  
+<img src="https://github.com/user-attachments/assets/dd486f30-b6e4-446e-85d5-799c350265d4" width="600">  
 
 ## BalancePage  
-<img src="https://github.com/user-attachments/assets/4a75fe1e-0c23-40c1-bbff-872dd3923be1" width="600">  
+<img src="https://github.com/user-attachments/assets/5d78b96f-045f-4a3e-b500-94a0605cac5a" width="600">  
+
 
 ## DepositPage  
-<img src="https://github.com/user-attachments/assets/261b9961-a7a9-4e54-96d2-93cac11f149d" width="600">  <br>
-<img src="https://github.com/user-attachments/assets/a68a87b0-00e7-4dcf-acee-c223bb3ba592" width="300">  
+<img src="https://github.com/user-attachments/assets/48600c60-2303-4a9f-9d6f-7b539c826a89" width="600">  <br>
+<img src="https://github.com/user-attachments/assets/cac91852-6e51-4ed4-88af-3146632fc307" width="300">  
 > deposit success messagebox
 
 ## WithDrawPage  
-<img src="https://github.com/user-attachments/assets/6fb8cb0c-0a9b-478f-98ed-84b78332dc9e" width="600">  <br>
+<img src="https://github.com/user-attachments/assets/16057c4e-b5aa-4667-9248-4684f2da0f8c" width="600">  <br>
 <img src="https://github.com/user-attachments/assets/4a088297-ddbc-4155-9fdb-b1432ed89e66" width="300">  <br>
-> withdraw fail messagebox
-  
-<img src="https://github.com/user-attachments/assets/99d83405-d41e-4ce3-8c2e-19e73b6c54ed" width="300">  <br>
+> withdraw fail messagebox  
+
+<img src="https://github.com/user-attachments/assets/504426b5-1061-47d5-b475-420a02e09417" width="300">  <br>
 > deposit success messagebox
 
-## CreateAccountPage  
-<img src="https://github.com/user-attachments/assets/f6acbc65-891e-4eb8-817d-81482ce32103" width="600">   <br>
-<img src="https://github.com/user-attachments/assets/15739966-8755-402a-89ab-0eb2bc26cb19" width="300">  
-> create account error 1
+## CreateAccountPage 
+<img src="https://github.com/user-attachments/assets/533f03eb-91fd-41fc-a97a-5a8d744576cb" width="600">   <br>
+
+<img src="https://github.com/user-attachments/assets/15739966-8755-402a-89ab-0eb2bc26cb19" width="300">  <br>
+> create account error 1  
   
 <img src="https://github.com/user-attachments/assets/aa112e9b-2c48-4318-9eb6-5f001c720355" width="300">  <br>
-> create account error 2
+> create account error 2  
   
 <img src="https://github.com/user-attachments/assets/3ce3f68c-6c26-4cf4-9a7c-575a05db7a90" width="300">  <br>
-> create account error 3
+> create account error 3  
 
 # 更新日誌
 
