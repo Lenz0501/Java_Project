@@ -53,6 +53,10 @@ Swing_Test/
 <img src="https://github.com/user-attachments/assets/504426b5-1061-47d5-b475-420a02e09417" width="300">  <br>
 > deposit success messagebox
 
+## RecentTransactionPage 
+<img src="https://github.com/user-attachments/assets/c2ec1588-9487-46fe-a3b3-37a827d873e9" width="600">   <br>
+
+
 ## CreateAccountPage 
 <img src="https://github.com/user-attachments/assets/533f03eb-91fd-41fc-a97a-5a8d744576cb" width="600">   <br>
 
@@ -127,7 +131,7 @@ Swing_Test/
 新開帳戶無法馬上登入 (已解決)
 
 **:clipboard:愈追加功能**   
-使用username登入
+使用username登入 (已完成)
   
   
 ## 5/15 修復更新
@@ -165,3 +169,22 @@ Swing_Test/
 > 右下方加入回到menu按鈕  
 
 - Icon 更新
+
+
+## 5/20 更新 2  
+- User 類別更新
+> 建構子傳入參數多加role (admin,general)
+
+- UserManager 類別更新
+> 新增方法: getUserByUsername()
+> 驗證機制由ID改為username
+
+- TestATM.java 更新
+> 改為由username登入
+> admin帳號有開戶選項
+
+
+## 5/20 更新 1  
+- 新增 RecentTransactionPage
+> 用table呈現所有帳戶的交易資訊
+> 資料包括(
